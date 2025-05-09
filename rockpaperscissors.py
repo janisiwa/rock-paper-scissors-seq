@@ -9,7 +9,7 @@ Here are the requirements of the game
 All code is original and was made to enhance my skill integration."""
 
 #track who is playing the game
-print("Welcome to Rock - Paper - Scissors!")
+print("Welcome to Rock - Paper - Scissors! \n \n")
 player_one_name = input("Player 1, what is your name? (maximum of 10 characters)")
 player_two_name = input("Player 2, what is your name? (maximum of 10 characters)")
 
@@ -27,24 +27,24 @@ player_two_game_ties=0
 
 
 #start the first game or if the players would like to play again, start a another game
-print(f"Alright {player_one_name} and {player_two_name}, let's start the game!")
+print(f"Alright {player_one_name} and {player_two_name}, let's start the game! \n \n")
 play_again = True
 while play_again:
         #retrieve player one's move
-        player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]")
+        player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
         
         #validate the move and continue to ask for a valid move
         while int(player_one_move) < 1 or int(player_one_move)>3:
             print(f"{player_one_move} is an invalid selection. Enter a 1, 2 or 3.")
-            player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]")
+            player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
         
         #retrieve player two's move
-        player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n3 Scissors \n Select [1-3]")
+        player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
 
         #validate the move and continue to ask for a valid move
         while int(player_two_move) < 1 or int(player_two_move)>3:
             print(f"{player_two_move} is an invalid selection. . Enter a 1, 2 or 3.")
-            player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]")
+            player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
 
         #apply the rules of the game to determine the winner
         match int(player_one_move) + int(player_two_move):
@@ -123,12 +123,12 @@ while play_again:
                    
 
         #check to see if another game
-        play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}?")
-        while bool(play_again_temp) != True and bool(play_again_temp) != False:
-            print(f"{play_again_temp} is an invalid option. Enter a T or F.")
+        play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}? \n Type Y or N")
+        while play_again_temp.upper() != "Y" or play_again_temp.upper() != "N":
+            print(f"{play_again_temp} is an invalid option. Enter a Y for 'Yes' or N for 'No'.")
             play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}?")    
 
-        if play_again_temp:
+        if play_again_temp=="Y":
             play_again=True
         else:
             play_again=False
