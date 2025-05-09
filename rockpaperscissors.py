@@ -18,9 +18,12 @@ player_one_name = player_one_name[:10].strip()
 player_two_name = player_two_name[:10].strip()
 
 #track game stats
-player_one_game_wins, player_two_game_wins=0
-player_one_games, player_two_games=0
-player_one_game_ties, player_two_game_ties=0
+player_one_games=0
+player_two_games=0
+player_one_game_wins=0
+player_two_game_wins=0
+player_one_game_ties=0
+player_two_game_ties=0
 
 
 #start the first game or if the players would like to play again, start a another game
