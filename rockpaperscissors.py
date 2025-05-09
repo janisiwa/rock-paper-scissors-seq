@@ -67,10 +67,10 @@ while play_again:
                     
                     #one selected rock, the other player selected scissors
                     #rock beats scissors
-                    if player_one_move == 1:
+                    if int(player_one_move) == 1:
                         player_one_game_wins +=1
                         print(f"{player_one_name} wins!")
-                    elif player_two_move == 1:
+                    elif int(player_two_move) == 1:
                         player_two_game_wins +=1
                         print(f"{player_two_name} wins!")
                     else:
@@ -122,25 +122,27 @@ while play_again:
                    
 
         #check to see if another game
-        play_again_temp=input(f"\n \nWould you like to play another game, {player_one_name} and {player_two_name}?\nType Y or N:")
-        while play_again_temp.upper() != "Y" and play_again_temp.upper() != "N":
-            print(f"{play_again_temp} is an invalid option. Enter a Y for 'Yes' or N for 'No'.")
+        play_again_temp=input(f"\n \nWould you like to play another game, {player_one_name} and {player_two_name}?\nType Y or N:").strip().upper()
+        while not(play_again_temp == "Y") and not(play_again_temp == "N"):
+            print(f"\n\n{play_again_temp} is an invalid option. Enter a Y for 'Yes' or N for 'No'.")
             play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}?\nType Y or N:")    
 
         if play_again_temp=="Y":
             play_again=True
+            print(f"Ok! Let's play game #{player_one_games +1}")
+            print("\n\n")
         else:
             play_again=False
     
 #finished playing games
 print("\n\nThat's it folks! Thanks for playing! \n\nHere are the statistics:")
-print("-" * 46 )
-print(f"|{"Player Name":<10}|{"Wins":<10}|{"Ties":<10}|{"Total":<10}|")
-print("-" * 46 )
-print(f"|{player_one_name:<10}|{player_one_game_wins:>10}|{player_one_game_ties:>10}|{player_one_games:>10}|")
-print("-" * 46 )
-print(f"|{player_two_name:<10}|{player_two_game_wins:>10}|{player_two_game_ties:>10}|{player_two_games:>10}|")
-print("-" * 46 )
+print("-" * 53 )
+print(f"|{"Player Name":<12}|{"Wins":<12}|{"Ties":<12}|{"Total":<12}|")
+print("-" * 53 )
+print(f"|{player_one_name:<12}|{player_one_game_wins:>12}|{player_one_game_ties:>12}|{player_one_games:>12}|")
+print("-" * 53 )
+print(f"|{player_two_name:<12}|{player_two_game_wins:>12}|{player_two_game_ties:>12}|{player_two_games:>12}|")
+print("-" * 53 )
     
 
         
