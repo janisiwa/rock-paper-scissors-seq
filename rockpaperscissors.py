@@ -31,20 +31,20 @@ print(f"Alright {player_one_name} and {player_two_name}, let's start the game!")
 play_again = True
 while play_again:
         #retrieve player one's move
-        player_one_move=input(f"{player_one_name}, choose your option: /n 1. Rock /n 2. Paper /n 3. Scissors /n Select [1-3]")
+        player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]")
         
         #validate the move and continue to ask for a valid move
         while int(player_one_move) < 1 or int(player_one_move)>3:
             print(f"{player_one_move} is an invalid selection. Enter a 1, 2 or 3.")
-            player_one_move=input(f"{player_one_name}, choose your option: /n 1. Rock /n 2. Paper /n 3. Scissors /n Select [1-3]")
+            player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]")
         
         #retrieve player two's move
-        player_two_move=input(f"{player_two_name}, choose your option: /n 1. Rock /n 2. Paper /n3 Scissors /n Select [1-3]")
+        player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n3 Scissors \n Select [1-3]")
 
         #validate the move and continue to ask for a valid move
         while int(player_two_move) < 1 or int(player_two_move)>3:
             print(f"{player_two_move} is an invalid selection. . Enter a 1, 2 or 3.")
-            player_two_move=input(f"{player_two_name}, choose your option: /n 1. Rock /n 2. Paper /n 3. Scissors /n Select [1-3]")
+            player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]")
 
         #apply the rules of the game to determine the winner
         match int(player_one_move) + int(player_two_move):
@@ -134,7 +134,7 @@ while play_again:
             play_again=False
     
 #finished playing games
-print("That's it folks! Thanks for playing! /n Here are the ending game statistics:")
+print("That's it folks! Thanks for playing! \n Here are the ending game statistics:")
 print("-" * 45 )
 print(f"|{"Player Name":<20}|{"Wins":<20}|{"Ties":<20}|{"Total":<20}|")
 print("-" * 45 )
