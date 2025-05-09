@@ -1,5 +1,6 @@
 ## Rock Paper Scissors Game
-### This is a game of rock paper scissors written in Python, without using objects and separate functions. 
+### This is a game of rock, paper, scissors, played by two players using command line input
+#### v1 - written in Python without using objects and separate functions. 
 
 Here are the requirements of the game:
 <ul>
