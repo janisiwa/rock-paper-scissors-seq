@@ -9,9 +9,9 @@ Here are the requirements of the game
 All code is original and was made to enhance my skill integration."""
 
 #track who is playing the game
-print("Welcome to Rock - Paper - Scissors! \n \n")
-player_one_name = input("Player 1, what is your name? (maximum of 10 characters)")
-player_two_name = input("Player 2, what is your name? (maximum of 10 characters)")
+print("*** Welcome to Rock - Paper - Scissors! ***\n\n")
+player_one_name = input("Player 1, what is your name? (maximum of 10 characters):")
+player_two_name = input("Player 2, what is your name? (maximum of 10 characters):")
 
 #keep a maximum of 10 characters and remove white space from the ends
 player_one_name = player_one_name[:10].strip()
@@ -27,7 +27,7 @@ player_two_game_ties=0
 
 
 #start the first game or if the players would like to play again, start a another game
-print(f"Alright {player_one_name} and {player_two_name}, let's start the game! \n \n")
+print(f"\n\nAlright {player_one_name} and {player_two_name}, let's start the game! \n\n")
 play_again = True
 while play_again:
         #retrieve player one's move
@@ -39,12 +39,15 @@ while play_again:
             player_one_move=input(f"{player_one_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
         
         #retrieve player two's move
-        player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
+        player_two_move=input(f"\n \n{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
 
         #validate the move and continue to ask for a valid move
         while int(player_two_move) < 1 or int(player_two_move)>3:
             print(f"{player_two_move} is an invalid selection. . Enter a 1, 2 or 3.")
             player_two_move=input(f"{player_two_name}, choose your option: \n 1. Rock \n 2. Paper \n 3. Scissors \n Select [1-3]:")
+
+        #add some whitespace
+        print("\n\n")
 
         #apply the rules of the game to determine the winner
         match int(player_one_move) + int(player_two_move):
@@ -53,28 +56,36 @@ while play_again:
                     player_one_games +=1
                     player_two_games +=1
 
-                    player_one_ties +=1
-                    player_two_ties +=1
+                    player_one_game_ties +=1
+                    player_two_game_ties +=1
                     
                     print("It's a tie!")
                 
                 case 4:
-                    #both selected paper, game is a tie
                     player_one_games +=1
                     player_two_games +=1
-
-                    player_one_ties +=1
-                    player_two_ties +=1
                     
-                    print("It's a tie!")
+                    #one selected rock, the other player selected scissors
+                    #rock beats scissors
+                    if player_one_move == 1:
+                        player_one_game_wins +=1
+                        print(f"{player_one_name} wins!")
+                    elif player_two_move == 1:
+                        player_two_game_wins +=1
+                        print(f"{player_two_name} wins!")
+                    else:
+                        #both selected paper, game is a tie
+                        player_one_game_ties +=1
+                        player_two_game_ties +=1
+                        print("It's a tie!")
 
                 case 6:
                     #both selected scissors, game is a tie
                     player_one_games +=1
                     player_two_games +=1
 
-                    player_one_ties +=1
-                    player_two_ties +=1
+                    player_one_game_ties +=1
+                    player_two_game_ties +=1
                     print("It's a tie!")
 
                 case 3:
@@ -84,18 +95,6 @@ while play_again:
                     
                     #paper beats rock
                     if player_one_move == 2:
-                        player_one_game_wins +=1
-                        print(f"{player_one_name} wins!")
-                    else:
-                        player_two_game_wins +=1
-                        print(f"{player_two_name} wins!")
-                case 4:
-                    #one player selected rock, the other player selected scissors
-                    player_one_games +=1
-                    player_two_games +=1
-                    
-                    #rock beats scissors
-                    if player_one_move == 1:
                         player_one_game_wins +=1
                         print(f"{player_one_name} wins!")
                     else:
@@ -123,10 +122,10 @@ while play_again:
                    
 
         #check to see if another game
-        play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}? \n Type Y or N")
-        while play_again_temp.upper() != "Y" or play_again_temp.upper() != "N":
+        play_again_temp=input(f"\n \nWould you like to play another game, {player_one_name} and {player_two_name}?\nType Y or N:")
+        while play_again_temp.upper() != "Y" and play_again_temp.upper() != "N":
             print(f"{play_again_temp} is an invalid option. Enter a Y for 'Yes' or N for 'No'.")
-            play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}?")    
+            play_again_temp=input(f"Would you like to play another game, {player_one_name} and {player_two_name}?\nType Y or N:")    
 
         if play_again_temp=="Y":
             play_again=True
@@ -134,14 +133,14 @@ while play_again:
             play_again=False
     
 #finished playing games
-print("That's it folks! Thanks for playing! \n Here are the ending game statistics:")
-print("-" * 45 )
-print(f"|{"Player Name":<20}|{"Wins":<20}|{"Ties":<20}|{"Total":<20}|")
-print("-" * 45 )
-print(f"|{player_one_name:<20}|{player_one_game_wins:<20}|{player_one_game_ties:<20}|{player_one_games:<20}|")
-print("-" * 45 )
-print(f"|{player_two_name:<20}|{player_two_game_wins:<20}|{player_two_game_ties:<20}|{player_two_games:<20}|")
-print("-" * 45 )
+print("\n\nThat's it folks! Thanks for playing! \n\nHere are the statistics:")
+print("-" * 46 )
+print(f"|{"Player Name":<10}|{"Wins":<10}|{"Ties":<10}|{"Total":<10}|")
+print("-" * 46 )
+print(f"|{player_one_name:<10}|{player_one_game_wins:>10}|{player_one_game_ties:>10}|{player_one_games:>10}|")
+print("-" * 46 )
+print(f"|{player_two_name:<10}|{player_two_game_wins:>10}|{player_two_game_ties:>10}|{player_two_games:>10}|")
+print("-" * 46 )
     
 
         
